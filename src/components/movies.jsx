@@ -46,3 +46,4 @@ class Movies extends Component{
 export default Movies;
 // NOte: there should be one element while returning the jsx
 // Note: while rendering more than two element we can wrap two elements with the div or use React.fragments
+// Note: JSX represents to  javascript syntax XML .. this allows us to directly write HTML in React (javascript within code)
