@@ -11,7 +11,9 @@ class Movies extends Component{
     this.setState({movies: movies});
    }
    render(){
-       return <table className="table">
+       if (this.state.movies.length === 0) return <p>There are no movies in the database.</p>
+       return (
+       <table className="table">
            <thead>
                <tr>
                    <th>Title</th>
@@ -32,8 +34,9 @@ class Movies extends Component{
                </tr>
             ))}
             
-               </tbody>
+        </tbody>
        </table>
+       )
    }
 }
 
