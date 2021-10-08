@@ -13,7 +13,9 @@ class Movies extends Component{
    render(){
        if (this.state.movies.length === 0) return <p>There are no movies in the database.</p>
        return (
-       <table className="table">
+           <div>
+           <p> Showing {this.state.movies.length} movies in the datatable</p>
+         <table className="table">
            <thead>
                <tr>
                    <th>Title</th>
@@ -36,6 +38,7 @@ class Movies extends Component{
             
         </tbody>
        </table>
+       </div>   
        )
    }
 }
