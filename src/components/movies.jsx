@@ -11,11 +11,12 @@ class Movies extends Component{
     this.setState({movies: movies});
    }
    render(){
+       const {length:count} = this.state.movies;
        if (this.state.movies.length === 0) return <p>There are no movies in the database.</p>
        return (
-           <div>
-           <p> Showing {this.state.movies.length} movies in the datatable</p>
-         <table className="table">
+        <div>
+        <p> Showing {count} movies in the datatable</p>
+        <table className="table">
            <thead>
                <tr>
                    <th>Title</th>
@@ -34,9 +35,8 @@ class Movies extends Component{
                    <td>{movie.dailyRentalRate}</td>
                    <td><button onClick={()=>this.handleDelete(movie)} className="btn-danger btn-sm">Delete</button></td>
                </tr>
-            ))}
-            
-        </tbody>
+            ))}            
+           </tbody>
        </table>
        </div>   
        )
