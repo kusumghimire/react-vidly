@@ -3,7 +3,16 @@ import React, {Component} from 'react'
 class Movies extends Component{
    state = {};
    render(){
-       return <h2>Movies Component</h2>
+       return <table className="table">
+           <thead>
+               <tr>
+                   <th>Title</th>
+                   <th></th>
+                   <th></th>
+                   <th></th>
+               </tr>
+           </thead>
+       </table>
    }
 }
 
