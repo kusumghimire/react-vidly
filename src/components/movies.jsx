@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {getMovies} from "../fakeMovieService";
+import {getMovies} from "../services/fakeMovieService";
 class Movies extends Component{
    state = {
        movies: getMovies()
@@ -17,10 +17,10 @@ class Movies extends Component{
            <tbody>
                {this.state.movies.map(movie =>(
                <tr>
-                   <td></td>
-                   <td></td>
-                   <td></td>
-                   <td></td>
+                   <td>{movie.title}</td>
+                   <td>{movie.genre.name}</td>
+                   <td>{movie.numberInStock}</td>
+                   <td>{movie.dailyRentalRate}</td>
                </tr>
             ))}
             
