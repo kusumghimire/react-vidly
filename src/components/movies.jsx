@@ -44,3 +44,5 @@ class Movies extends Component{
 }
 
 export default Movies;
+// NOte: there should be one element while returning the jsx
+// Note: while rendering more than two element we can wrap two elements with the div or use React.fragments
