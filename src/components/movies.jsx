@@ -4,7 +4,6 @@ class Movies extends Component{
    state = {
        movies: getMovies()
    };
-
    
    handleDelete = movie =>{
     const movies = this.state.movies.filter(m => m._id !== movie._id)
@@ -47,3 +46,5 @@ export default Movies;
 // NOte: there should be one element while returning the jsx
 // Note: while rendering more than two element we can wrap two elements with the div or use React.fragments
 // Note: JSX represents to  javascript syntax XML .. this allows us to directly write HTML in React (javascript within code)
+
+// ??? How does handledelete function works
