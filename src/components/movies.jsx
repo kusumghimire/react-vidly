@@ -15,6 +15,7 @@ class Movies extends Component{
        const index = movies.indexOf(movie);
        movies[index]= {...movies[index]};
        movies[index].liked = !movies[index].liked;
+       this.setState({movies});
    };
 //    if this is true it becomes true otherwise it become false
 
