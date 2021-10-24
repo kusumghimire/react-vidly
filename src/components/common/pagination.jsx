@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Pagination =()=>{
+const Pagination =props=>{
+    const {itemCount , pageSize } = props;
+
+    const pagesCount  = itemsCount / pageSize;
+
  return <nav>
      <ul className="pagination">
          <li className="page">
@@ -11,3 +15,5 @@ const Pagination =()=>{
 };
 
 export default Pagination;
+
+// lodash is used for exporting Node.js
