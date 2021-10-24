@@ -5,6 +5,7 @@ import Pagination from './common/pagination';
 class Movies extends Component{
    state = {
        movies: getMovies(),
+       currentPage:1,
        pageSize:4,
    };
    
@@ -22,10 +23,13 @@ class Movies extends Component{
 //    if this is true it becomes true otherwise it become false
 
 handlePageChange = page =>{
-    console.log(page);}
+    console.log(page);
+};
 
    render(){
        const {length:count} = this.state.movies;
+       const {pageSize, currentPage} = this.state;
+
        if (this.state.movies.length === 0) return <p>There are no movies in the database.</p>
        return (
         <div>
@@ -57,8 +61,9 @@ handlePageChange = page =>{
        </table>
        <Pagination  
        itemsCount = {count} 
-       pageSize = {9} 
-       onPageChange = {this.state.handlePageChange}
+       pageSize = {pageSize} 
+       currentPage = {currentPage}
+       onPageChange = {this.handlePageChange}
        />
      {/* This is an input method */}
        </div>   
