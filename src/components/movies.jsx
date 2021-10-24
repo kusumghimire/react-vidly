@@ -55,7 +55,10 @@ handlePageChange = page =>{
             ))}            
            </tbody>
        </table>
-       <Pagination  itemsCount = {count} pageSize = {this.state.pageSize} onPageChange = {this.state.handlePageChange}
+       <Pagination  
+       itemsCount = {count} 
+       pageSize = {9} 
+       onPageChange = {this.state.handlePageChange}
        />
      {/* This is an input method */}
        </div>   
