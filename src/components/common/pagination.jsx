@@ -1,4 +1,5 @@
 import React from "react";
+import PropType from 'prop-types';
 import _ from "lodash";
 // lodash is the popular js library called underscore
 
@@ -24,6 +25,10 @@ const Pagination = props => {
       </ul>
     </nav>
   );
+};
+
+Pagination.propTypes = {
+  itemsCount, pageSize ,currentPage,onPageChange
 };
 
 export default Pagination;

@@ -82,3 +82,5 @@ export default Movies;
 // Note: JSX represents to  javascript syntax XML .. this allows us to directly write HTML in React (javascript within code)
 
 // ??? How does handledelete function works
+
+// type checking is added to react
