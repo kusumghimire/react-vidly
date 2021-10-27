@@ -7,7 +7,8 @@ import {getGenres} from '../services/fakeGenreService';
 import { paginate } from "../utils/paginate";
 class Movies extends Component {
   state = {
-    movies: getMovies(),
+    // movies: getMovies(),
+    movies: [],
     genres: [],
     currentPage: 1,
     pageSize: 4,
@@ -17,7 +18,7 @@ class Movies extends Component {
 
 
 componentDidMount(){
-
+this.setState ({movies: getMovies(), genres : getGenres()});
 }
 
 
@@ -38,6 +39,9 @@ componentDidMount(){
     this.setState({ currentPage: page });
     // this will cause new rendering
   };
+  handleGenreSelect = genre =>{
+      console.log(genre);
+  }
 
   render() {
     const { length: count } = this.state.movies;
@@ -51,7 +55,7 @@ componentDidMount(){
     return (
       <div className="">
         <div className="col-2">
-            <ListGroup items = {this.state.genres} />
+            <ListGroup items = {this.state.genres} onItemSelect = {this.handleGenreSelect} />
         </div>
         <div className="col">
           <p> Showing {count} movies in the datatable</p>
