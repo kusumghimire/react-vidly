@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {getMovies} from "../services/fakeMovieService";
 import Like from './common/like';
 import Pagination from './common/pagination';
+import { paginate } from '../utils/paginate';
 class Movies extends Component{
    state = {
        movies: getMovies(),
@@ -23,15 +24,18 @@ class Movies extends Component{
 //    if this is true it becomes true otherwise it become false
 
 handlePageChange = page =>{
-    console.log(page);
     this.setState({currentPage: page});
+    // this will cause new rendering
 };
 
    render(){
        const {length:count} = this.state.movies;
-       const {pageSize, currentPage} = this.state;
+       const {pageSize, currentPage, movies:allMovies} = this.state;
 
-       if (this.state.movies.length === 0) return <p>There are no movies in the database.</p>
+       if (this.state.movies.length === 0) return <p>There are no movies in the database.</p>;
+   
+       const movies = paginate(allMovies, currentPage, pageSize );
+
        return (
         <div>
         <p> Showing {count} movies in the datatable</p>
@@ -48,7 +52,7 @@ handlePageChange = page =>{
                </tr>
            </thead>
            <tbody>
-               {this.state.movies.map(movie =>(
+               {movies.map(movie =>(
                <tr key={movie._id}>
                    <td>{movie.title}</td>
                    <td>{movie.genre.name}</td>
