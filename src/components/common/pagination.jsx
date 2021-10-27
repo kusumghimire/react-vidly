@@ -1,9 +1,13 @@
 import React from "react";
 import _ from "lodash";
-const Pagination = (props) => {
+// lodash is the popular js library called underscore
+
+
+const Pagination = props => {
   const { itemsCount, pageSize ,currentPage,onPageChange} = props;
   console.log(currentPage);
-  const pagesCount = itemsCount / pageSize;
+  const pagesCount = Math.ceil(itemsCount / pageSize);
+  // Math.ceil method return smallest integer greater than 1 or 2
   if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
   // 1 is added so that last page is also added
