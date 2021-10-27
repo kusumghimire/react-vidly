@@ -3,7 +3,7 @@ import Like from "./common/like";
 import ListGroup from "./common/listGroup";
 import Pagination from "./common/pagination";
 import { getMovies } from "../services/fakeMovieService";
-import {getGenres} from '../services/fakeGenreService';
+import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utils/paginate";
 class Movies extends Component {
   state = {
@@ -14,13 +14,11 @@ class Movies extends Component {
     pageSize: 4,
   };
 
-// when instance of the memory is rendered in the DOM is componentDidMount
+  // when instance of the memory is rendered in the DOM is componentDidMount
 
-
-componentDidMount(){
-this.setState ({movies: getMovies(), genres : getGenres()});
-}
-
+  componentDidMount() {
+    this.setState({ movies: getMovies(), genres: getGenres() });
+  }
 
   handleDelete = (movie) => {
     const movies = this.state.movies.filter((m) => m._id !== movie._id);
@@ -39,9 +37,9 @@ this.setState ({movies: getMovies(), genres : getGenres()});
     this.setState({ currentPage: page });
     // this will cause new rendering
   };
-  handleGenreSelect = genre =>{
-      console.log(genre);
-  }
+  handleGenreSelect = (genre) => {
+    console.log(genre);
+  };
 
   render() {
     const { length: count } = this.state.movies;
@@ -53,9 +51,14 @@ this.setState ({movies: getMovies(), genres : getGenres()});
     const movies = paginate(allMovies, currentPage, pageSize);
 
     return (
-      <div className="">
-        <div className="col-2">
-            <ListGroup items = {this.state.genres} onItemSelect = {this.handleGenreSelect} />
+      <div className="row">
+        <div className="col-3">
+          <ListGroup
+            items={this.state.genres}
+            textProperty ="name"
+            valueProperty = "value"
+            onItemSelect={this.handleGenreSelect}
+          />
         </div>
         <div className="col">
           <p> Showing {count} movies in the datatable</p>
