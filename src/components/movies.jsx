@@ -17,7 +17,7 @@ class Movies extends Component {
   // when instance of the memory is rendered in the DOM is componentDidMount
 
   componentDidMount() {
-    const genres = [{name:"All Genres"},...getGenres()]
+    const genres = [{_id:'',name:"All Genres"},...getGenres()]
     this.setState({ movies: getMovies(), genres});
   }
 
@@ -42,6 +42,10 @@ class Movies extends Component {
     this.setState({selectedGenre : genre, currentPage:1});
   };
 
+  handleSort = path =>{
+console.log(path,'sfdv');
+  }
+
   render() {
     // const { length: count } = this.state.movies;
     const { pageSize, currentPage,selectedGenre, movies: allMovies } = this.state;
@@ -63,7 +67,12 @@ class Movies extends Component {
         <div className="col">
           <p> Showing {filtered.length} movies in the datatable</p>
          
-         <MoviesTable  movies={movies} onLike= {this.handleLike} onDelete ={this.handleDelete} />
+         <MoviesTable  
+         movies={movies} 
+         onLike= {this.handleLike} 
+         onDelete ={this.handleDelete}
+         onSort ={this.handleSort}
+          />
          {/* movies are passed from another moviesTable  */}
           <Pagination
             itemsCount={filtered.length}
