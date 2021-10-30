@@ -2,6 +2,14 @@ import React from 'react'
 
 class TableBody extends Component{
     render(){
-        return();
+        return(
+            <tbody>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+        );
     }
 }
+
+export default TableBody;
