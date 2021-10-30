@@ -3,7 +3,7 @@ import TableHeader from './common/tableHeader';
 import Like from "./common/like";
 class MoviesTable extends Component{
    columns=[  //  here columns are new operating columns
-    {path:'title', label:'title'},
+    {path:'title', label:'Title'},
     {path:'genre.name', label:'Genre'},
     {path:'numberInStock', label:'Stock'},
     {path:'dailyRentalRate', label:'Rate'},
