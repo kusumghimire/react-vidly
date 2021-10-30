@@ -21,7 +21,7 @@ class TableHeader extends Component{
             <thead>
                 <tr>
                     {this.props.columns.map(column => (
-                    <th onClick={() => this.raiseSort('column.path')}>
+                    <th key={column.path} onClick={() => this.raiseSort('column.path')}>
                       {column.label}
                     </th>
                     ))}
