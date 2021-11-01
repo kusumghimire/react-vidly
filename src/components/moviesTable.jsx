@@ -28,7 +28,7 @@ class MoviesTable extends Component{
   ];
    
   render(){
-    const {movies, onDelete, onLike, onSort,sortColumn} = this.props;
+    const {movies,columns, data, onDelete, onLike, onSort,sortColumn} = this.props;
 
     return(
 
@@ -38,7 +38,7 @@ class MoviesTable extends Component{
       sortColumn={sortColumn} 
       onSort={onSort} 
     />
-    <TableBody data = {movies} />
+    <TableBody columns={columns} data = {data}  />
      {/* <tbody>
       {movies.map((movie) => (
         <tr key={movie._id}>
