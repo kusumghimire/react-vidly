@@ -38,8 +38,8 @@ class MoviesTable extends Component{
       sortColumn={sortColumn} 
       onSort={onSort} 
     />
-    <TableBody columns={columns} data = {data}  />
-     {/* <tbody>
+    {/* <TableBody columns={columns} data = {data}  /> */}
+     <tbody>
       {movies.map((movie) => (
         <tr key={movie._id}>
           <td>{movie.title}</td>
@@ -62,7 +62,7 @@ class MoviesTable extends Component{
           </td>
         </tr>
       ))}
-    </tbody>  */}
+    </tbody> 
   </table>
     )
   }
