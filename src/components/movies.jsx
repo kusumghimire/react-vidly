@@ -6,6 +6,7 @@ import { getMovies } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utils/paginate";
 import _ from 'lodash';
+import { ChairIcon} from 'meistericons';
 class Movies extends Component {
   state = {
     // movies: getMovies(),
@@ -70,7 +71,7 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
-          <p> Showing {filtered.length} movies in the datatable</p>
+          <p> Showing {filtered.length} movies in the datatable <ChairIcon/></p>
          
          <MoviesTable  
          movies={movies} 
