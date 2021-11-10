@@ -38,6 +38,7 @@ class Movies extends Component {
 
   handlePageChange = page => {
     this.setState({ currentPage: page });
+    // console.log(page);
     // this will cause new rendering
   };
   handleGenreSelect = genre => {
@@ -64,7 +65,7 @@ class Movies extends Component {
 
     const filtered = selectedGenre && selectedGenre._id ? allMovies.filter(m =>m.genre_id === selectedGenre._id) : allMovies;
 
-     const sorted = _.orderBy(filtered,[sortColumn.path], [sortColumn.order])
+    const sorted = _.orderBy(filtered,[sortColumn.path], [sortColumn.order])
      const movies = paginate(sorted, filtered, currentPage, pageSize);
 
     return (
@@ -95,6 +96,7 @@ class Movies extends Component {
           />
         </div>
         {/* This is an input method */}
+        {/* here pagination component is rerendered with the props */}
       </div>
     );
   }
