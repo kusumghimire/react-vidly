@@ -6,7 +6,6 @@ import { getMovies } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utils/paginate";
 import _ from 'lodash';
-import { ChairIcon} from 'meistericons';
 class Movies extends Component {
   state = {
     // movies: getMovies(),
@@ -20,13 +19,13 @@ class Movies extends Component {
   // when instance of the memory is rendered in the DOM is componentDidMount
 
   componentDidMount() {
-    const genres = [{_id:'',name:"All Genres"},...getGenres()]
+    const genres = [{_id:'', name:"All Genres"}, ...getGenres()]
     this.setState({ movies: getMovies(), genres});
   }
 
-  handleDelete = (movie) => {
-    const movies = this.state.movies.filter((m) => m._id !== movie._id);
-    this.setState({ movies: movies });
+  handleDelete = movie => {
+    const movies = this.state.movies.filter((m => m._id !== movie._id));
+    this.setState({ movies: movies, currentPage:1 });
   };
   handleLike = (movie) => {
     const movies = [...this.state.movies];
@@ -37,7 +36,7 @@ class Movies extends Component {
   };
   //    if this is true it becomes true otherwise it become false
 
-  handlePageChange = (page) => {
+  handlePageChange = page => {
     this.setState({ currentPage: page });
     // this will cause new rendering
   };
@@ -52,9 +51,16 @@ class Movies extends Component {
 
   render() {
     // const { length: count } = this.state.movies;
-    const { pageSize, currentPage,selectedGenre, movies: allMovies , sortColumn} = this.state;
+    const {
+      movies: allMovies,
+      currentPage,
+      pageSize,
+      genres,
+      selectedGenre,
+      sortColumn,
+    } = this.state;
 
-    if (this.state.movies.length === 0)return <p>There are no movies in the database.</p>;
+    if (!allMovies.length) return <p>There are no movies in the database.</p>;
 
     const filtered = selectedGenre && selectedGenre._id ? allMovies.filter(m =>m.genre_id === selectedGenre._id) : allMovies;
 
@@ -65,13 +71,13 @@ class Movies extends Component {
       <div className="row">
         <div className="col-3">
           <ListGroup
-            items={this.state.genres}
-            selectedItem = {this.state.selectedGenre}
+            items={genres}
+            selectedItem = {selectedGenre}
             onItemSelect={this.handleGenreSelect}
           />
         </div>
         <div className="col">
-          <p> Showing {filtered.length} movies in the datatable <ChairIcon/></p>
+          <p> Showing {filtered.length} movies in the datatable </p>
          
          <MoviesTable  
          movies={movies} 
@@ -88,7 +94,6 @@ class Movies extends Component {
             onPageChange={this.handlePageChange}
           />
         </div>
-
         {/* This is an input method */}
       </div>
     );

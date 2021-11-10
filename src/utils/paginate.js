@@ -1,12 +1,11 @@
-import _ from "lodash";
+import _ from 'lodash';
 
-export function paginate(items, pageNumber, pageSize){
-    const startIndex = (pageNumber -1) * pageSize;
-    return _(items)
+export function paginate(items, pageNumber, pageSize) {
+  const startIndex = (pageNumber - 1) * pageSize;
+  return _(items)
     .slice(startIndex)
     .take(pageSize)
     .value();
-    // tthis is paging data from the client site
-    // _.slice(items, startInd)
-
 }
+
+// this paging data is from server side rendering

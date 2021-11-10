@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import TableHeader from './common/tableHeader';
-import TableBody from './common/tableBody';
 import Like from "./common/like";
 class MoviesTable extends Component{
    columns=[  //  here columns are new operating columns
@@ -28,7 +27,7 @@ class MoviesTable extends Component{
   ];
    
   render(){
-    const {movies,columns, data, onDelete, onLike, onSort,sortColumn} = this.props;
+    const {movies,onDelete, onLike, onSort,sortColumn} = this.props;
 
     return(
 
