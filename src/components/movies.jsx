@@ -78,7 +78,7 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
-          <p> Showing {filtered.length} movies in the datatable </p>
+          <p> Showing {filtered.length} movies in the datatable. </p>
          
          <MoviesTable  
          movies={movies} 
